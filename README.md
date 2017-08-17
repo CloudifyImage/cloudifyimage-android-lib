@@ -1,8 +1,8 @@
 # cloudifyimage-android-lib
-This library is for uploading the images from android applications to the CloudfyImage server
+This library is for uploading the images from android applications to the Cloudfy-Image server
 
 ## How to use
-Add gradle dependancy
+Add gradle dependency
 
 ```java
 allprojects {
@@ -24,10 +24,10 @@ Java Utility
 new CloudifyImageUtil()
 	.addServerUrl({CLOUDIFY_SERVER_URL})
 	.addCredentials({YOUR_API_KEY}, {YOUR_API_SECRET})
-	.send("Rahul", path);
+	.send({YOUR_COLLECTION_NAME}, {ABSOLUTE_PATH_OF_IMAGE});
 ```
 
-Adding Custom Listener:
+### Adding Custom Listener:
 - Create a listener class implementing the `CloudifyImageListener` interface
 ```java
 class MyListener implements CloudifyImageListener {
@@ -46,17 +46,17 @@ class MyListener implements CloudifyImageListener {
 
 - Before calling the `send()` method, call the `addListener(new MyListener())`
 
-Adding Custom Progress-Dialog:
+### Adding Custom Progress-Dialog:
 - Create a custom ProgressDialog class object
 - Pass the object to the `addProgressDialog(customProgressDialog)` method
 
-###Example
+### Example
 ```java
 new CloudifyImageUtil()
 	.addServerUrl({CLOUDIFY_SERVER_URL})
 	.addCredentials({YOUR_API_KEY}, {YOUR_API_SECRET})
 	.addListener(new MyListener())
-	.addProgressDialog(pDialog)
+	.addProgressDialog(customProgressDialog)
 	.send({YOUR_COLLECTION_NAME}, {ABSOLUTE_PATH_OF_IMAGE});
 ```
 
